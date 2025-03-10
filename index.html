@@ -55,6 +55,43 @@
             <p>Ты — моё счастье, моя судьба, моя любовь! Жаным, сен мен үшін ең қымбат адамсың! ❤</p>
         </div>
     </div>
+<script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤";
+        heart.className = "heart";
+        document.body.appendChild(heart);
 
+        const x = Math.random() * window.innerWidth;
+        const y = window.innerHeight;
+        heart.style.position = "absolute";
+        heart.style.left = x + "px";
+        heart.style.top = y + "px";
+        heart.style.fontSize = "30px";
+        heart.style.animation = "fly 2s linear infinite";
+        heart.style.color = "red";
+
+        setTimeout(() => {
+            heart.remove();
+        }, 2000);
+    }
+
+    setInterval(createHeart, 300);
+
+    const style = document.createElement("style");
+    style.innerHTML = `
+        @keyframes fly {
+            from {
+                transform: scale(0.5) translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: scale(1.5) translateY(-500px);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+</script>
 </body>
 </html>
