@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+   .heart {
+    position: fixed;
+    color: red;
+    font-size: 30px;
+    animation: fly 3s linear infinite;
+}
+
+@keyframes fly {
+    0% {
+        transform: scale(0.5) translateZ(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5) translateZ(500px);
+        opacity: 0;
+    }
+}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Шұғыла, жаным!</title>
@@ -92,6 +112,28 @@
         }
     `;
     document.head.appendChild(style);
+</script>
+<script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤";
+        heart.className = "heart";
+        document.body.appendChild(heart);
+
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        heart.style.left = x + "px";
+        heart.style.top = y + "px";
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        heart.style.position = "fixed";
+        heart.style.animation = "fly 3s linear";
+
+        setTimeout(() => {
+            heart.remove();
+        }, 3000);
+    }
+
+    setInterval(createHeart, 200);
 </script>
 </body>
 </html>
