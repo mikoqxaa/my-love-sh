@@ -26,6 +26,22 @@ body {
     height: 100%;
     overflow: hidden;
 }
+.moon {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: url('moon.png') no-repeat center;
+    background-size: cover;
+    top: 10%;
+    left: -10%;
+    animation: moveMoon 10s linear infinite;
+}
+
+@keyframes moveMoon {
+    0% { transform: translateX(-100px); }
+    50% { transform: translateX(90vw); }
+    100% { transform: translateX(-100px); }
+}
 
 .star {
     position: absolute;
