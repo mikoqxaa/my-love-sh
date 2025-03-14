@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     const heartsContainer = document.getElementById("hearts-container");
 
+    if (!heartsContainer) {
+        alert("Элемент hearts-container не найден!");
+        return;
+    }
+
     function createHeart() {
         let heart = document.createElement("div");
         heart.classList.add("heart");
@@ -20,6 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 3000);
     }
 
-    setInterval(createHeart, 200);
+    setInterval(createHeart, 300);
 });
 </body>
