@@ -28,3 +28,18 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(createHeart, 300);
 });
 </body>
+document.addEventListener("DOMContentLoaded", () => {
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.animationDuration = `${Math.random() * 2 + 3}s`; // 3-5 секунд падения
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000); // Удаление после 5 сек
+    }
+
+    setInterval(createHeart, 300);
+});
